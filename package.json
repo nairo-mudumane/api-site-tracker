@@ -1,0 +1,27 @@
+{
+    "name": "api-site-tracker",
+    "version": "1.0.0",
+    "main": "./src/index.js",
+    "repository": "git@github.com:nairo-mudumane/api-site-tracker.git",
+    "author": "nairo-mudumane <nazirmudumane@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./src/index.js",
+        "build": "npm run build:prod",
+        "build:prod": "npm run build:clean && npm run build:copy",
+        "build:clean": "rm -rf ./dist",
+        "build:copy": "cp -r ./src ./dist",
+        "build:dev": "npm run build:clean && npm run build:copy && npm run start",
+        "build:watch": "npm run build:dev && nodemon --watch ./dist --exec \"npm run build:dev\""
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}
